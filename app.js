@@ -10,6 +10,7 @@ require('./boot/logging')()
 require('./boot/mkdir')()
 require('./boot/db')()
 require('./boot/serverCerts')()
+require('./events/cdrEvents')()
 
 const port = config.get('server').port
 app.listen(port, () => {
