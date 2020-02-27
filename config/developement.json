@@ -16,7 +16,7 @@
         "password": "1234"
       },
       "serverAdmin": {
-        "walletId": "CdrServerAdmin",
+        "walletId": "IndiaOpServerAdmin",
         "password": "1234"
       }
     }
