@@ -18,8 +18,11 @@
   "author": "H.Namazian",
   "license": "ISC",
   "dependencies": {
+    "child_process": "^1.0.2",
     "config": "^3.2.5",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "es6-promisify": "^6.0.2",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "fabric-ca-client": "^1.4.7",
@@ -27,8 +30,15 @@
     "fabric-network": "^1.4.7",
     "fs-extra": "^8.1.0",
     "joi": "^14.3.1",
+    "js-sha3": "^0.8.0",
+    "jsrsasign": "^8.0.12",
     "mongoose": "^5.8.11",
+    "net": "^1.0.2",
+    "node-forge": "^0.9.1",
+    "openssl": "^1.1.0",
+    "os-tmpdir": "^2.0.0",
     "standardjs": "^1.0.0-alpha",
+    "which": "^2.0.2",
     "winston": "^3.2.1"
   },
   "standard": {
