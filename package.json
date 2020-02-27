@@ -1,0 +1,24 @@
+{
+  "name": "hyperhack2020-cdr",
+  "version": "1.0.0",
+  "description": "HyperHack2020 Hackathon Competition - CDR challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ir-areatak-co/HyperHack2020-CDR.git"
+  },
+  "keywords": [
+    "Hyperledger",
+    "Fabric",
+    "HyperHack2020"
+  ],
+  "author": "H.Namazian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ir-areatak-co/HyperHack2020-CDR/issues"
+  },
+  "homepage": "https://github.com/ir-areatak-co/HyperHack2020-CDR#readme"
+}
