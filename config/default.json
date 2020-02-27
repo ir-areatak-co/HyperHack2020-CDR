@@ -16,16 +16,26 @@
         "password": "1234"
       },
       "serverAdmin": {
-        "walletId": "IndiaOpServerAdmin",
+        "walletId": "IndiaOpServerAdmin1",
         "password": "1234"
       }
     }
   },
   "blockchain": {
-    "network": "firstNetwork",
+    "network": "bornaNetwork",
     "networks": {
       "firstNetwork": {
         "connectionPath": "fileStorage/first-network/connection-org1.json",
+        "adminCA": {
+          "mspId": "Org1MSP",
+          "enrollment": {
+            "enrollmentID": "admin",
+            "enrollmentSecret": "adminpw"
+          }
+        }
+      },
+      "bornaNetwork": {
+        "connectionPath": "fileStorage/basic-network/connection.json",
         "adminCA": {
           "mspId": "Org1MSP",
           "enrollment": {
@@ -43,6 +53,13 @@
         "maxEnrollments": 3,
         "attrs": [{ "name": "Role", "value": "SERVER", "ecert": true }]
       }
+    }
+  },
+  "events": {
+    "profileRegistered": {
+      "name": "PROFILE_REGISTERED",
+      "chaincode": "profile",
+      "channel": "mychannel"
     }
   }
 }
