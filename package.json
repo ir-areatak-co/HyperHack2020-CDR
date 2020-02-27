@@ -17,6 +17,22 @@
   ],
   "author": "H.Namazian",
   "license": "ISC",
+  "dependencies": {
+    "config": "^3.2.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "fs-extra": "^8.1.0",
+    "joi": "^14.3.1",
+    "mongoose": "^5.8.11",
+    "standardjs": "^1.0.0-alpha",
+    "winston": "^3.2.1"
+  },
+  "standard": {
+    "ignore": [
+      "*.bundle.js"
+    ]
+  },
   "bugs": {
     "url": "https://github.com/ir-areatak-co/HyperHack2020-CDR/issues"
   },
