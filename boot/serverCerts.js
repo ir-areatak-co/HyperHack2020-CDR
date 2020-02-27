@@ -1,11 +1,11 @@
 const CdrChain = require('../network/CdrChain')
-const SecureWallet = require('../../app/Utils/SecureWallet/secureWallet')
+const SecureWallet = require('../utils/SecureWallet/secureWallet')
 const config = require('config')
 
 async function getAdminCaCert () {
-  const maskanCA = new CdrChain.CA()
+  const cdrCA = new CdrChain.CA()
 
-  const pki = await maskanCA.enrollAdminCA()
+  const pki = await cdrCA.enrollAdminCA()
   const key = Buffer.from(pki.key.toBytes())
   const cert = Buffer.from(pki.certificate)
 
@@ -15,12 +15,12 @@ async function getAdminCaCert () {
 }
 
 async function getServerAdminCert () {
-  const regRequest = config.get('blockchain.registerRequests.maskanAdmin')
-  const maskanCA = new CdrChain.CA()
+  const regRequest = config.get('blockchain').registerRequests.serverAdmin
+  const cdrCA = new CdrChain.CA()
 
-  const secret = await maskanCA.registerUser(regRequest)
+  const secret = await cdrCA.registerUser(regRequest)
 
-  const pki = await maskanCA.enrollUser(regRequest.enrollmentID, secret)
+  const pki = await cdrCA.enrollUser(regRequest.enrollmentID, secret)
   const key = Buffer.from(pki.key.toBytes())
   const cert = Buffer.from(pki.certificate)
 
