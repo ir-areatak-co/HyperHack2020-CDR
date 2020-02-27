@@ -16,7 +16,7 @@
         "password": "1234"
       },
       "serverAdmin": {
-        "walletId": "MaskanAdmin",
+        "walletId": "CdrServerAdmin",
         "password": "1234"
       }
     }
