@@ -7,5 +7,30 @@
     "host": "",
     "port": "",
     "name": ""
+  },
+  "blockchain": {
+    "devNet": "",
+    "productNet": "",
+    "networks": {
+      "firstNetwork": {
+        "connectionPath": "",
+        "adminCA": {
+          "mspId": "",
+          "enrollment": {
+            "enrollmentID": "",
+            "enrollmentSecret": ""
+          }
+        }
+      }
+    },
+    "registerRequests": {
+      "serverAdmin": {
+        "enrollmentID": "",
+        "affiliation": "",
+        "role": "",
+        "maxEnrollments": "",
+        "attrs": [{ "name": "", "value": "", "ecert": "" }]
+      }
+    }
   }
 }
