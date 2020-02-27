@@ -4,7 +4,7 @@ const fs = require('fs')
 
 class CdrNetwork {
   constructor () {
-    this.network = config.get('blockchain')
+    this.network = config.get('blockchain').network
 
     const connectinPath = config.get(`blockchain.networks.${this.network}.connectionPath`)
     this.connectinProfile = JSON.parse(fs.readFileSync(connectinPath).toString())
