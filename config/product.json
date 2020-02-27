@@ -1,0 +1,11 @@
+{
+  "server": {
+    "port": "",
+    "logsDirectory": ""
+  },
+  "database": {
+    "host": "",
+    "port": "",
+    "name": ""
+  }
+}
