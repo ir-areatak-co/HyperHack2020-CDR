@@ -1,0 +1,11 @@
+{
+  "server": {
+    "port": "HYPERHACK2020_CDR_PORT",
+    "logsDirectory": "HYPERHACK2020_CDR_LOGS_DIR"
+  },
+  "database": {
+    "host": "HYPERHACK2020_CDR_DB_HOST",
+    "port": "HYPERHACK2020_CDR_DB_PORT",
+    "name": "HYPERHACK2020_CDR_DB_NAME"
+  }
+}
