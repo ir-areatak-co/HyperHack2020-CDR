@@ -9,8 +9,7 @@
     "name": ""
   },
   "blockchain": {
-    "devNet": "",
-    "productNet": "",
+    "network": "",
     "networks": {
       "firstNetwork": {
         "connectionPath": "",

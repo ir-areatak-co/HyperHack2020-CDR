@@ -22,8 +22,7 @@
     }
   },
   "blockchain": {
-    "devNet": "firstNetwork",
-    "productNet": "",
+    "network": "firstNetwork",
     "networks": {
       "firstNetwork": {
         "connectionPath": "fileStorage/first-network/connection-org1.json",
