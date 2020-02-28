@@ -11,10 +11,11 @@ module.exports = class CallEventsDao {
     return result
   }
 
-  static async getMany(query, limit, offset) {
-    const result = CallEvents.find(query)
-      .skip(offset)
-      .limit(limit)
+  static async getMany(query, page, pageSize) {
+    const result = CallEvents.find(query, { _id: 0 })
+      .skip(page * pageSize)
+      .limit(pageSize)
+      .select('senderOperator receiverOperator callerId callReceiverId startedAt endedAt duration status')
     return result
   }
 
