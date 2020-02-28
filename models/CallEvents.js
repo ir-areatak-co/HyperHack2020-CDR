@@ -14,6 +14,7 @@ const callSchema = new mongoose.Schema({
   callReceiverId: { type: String, required: true },
   startedAt: { type: String, required: true },
   endedAt: { type: String, required: false },
+  duration: { type: Number, required: false },
   status: { type: String, required: true },
   startCallCreateTnx: { type: TransactionSchema, required: true },
   startCallAcceptTnx: { type: TransactionSchema, required: false },
