@@ -7,7 +7,7 @@ module.exports = class CallEventsDao {
   }
 
   static async getAll(query, fields) {
-    const result = CallEvents.find(query).select(fields)
+    const result = CallEvents.find(query, { _id: 0 }).select(fields)
     return result
   }
 
