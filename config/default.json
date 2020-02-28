@@ -56,9 +56,19 @@
     }
   },
   "events": {
-    "profileRegistered": {
-      "name": "PROFILE_REGISTERED",
-      "chaincode": "profile",
+    "callStartCreated": {
+      "name": "CALL_START_CREATED",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    },
+    "callStartAccepted": {
+      "name": "CALL_START_ACCEPTED",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    },
+    "callEnded": {
+      "name": "CALL_ENDED",
+      "chaincode": "CDR",
       "channel": "mychannel"
     }
   }
