@@ -23,12 +23,12 @@ module.exports = async (req, resp) => {
   // total call duration (by each)
   const usaDurations = await CallEventsDao.getAll({ senderOperator: 'UsaOpServer', status: 'ENDED' }, 'duration')
   console.log(usaDurations);
-  
-  const usaDuration = usaDurations.reduce((a, b) => a.duration || 0 + b.duration || 0)
+
+  const usaDuration = usaDurations.reduce((a, b) => a.duration || 0 + b.duration || 0, 0)
   const indiaDurations = await CallEventsDao.getAll({ senderOperator: 'IndiaOpServer', status: 'ENDED' }, 'duration')
   console.log(indiaDurations);
-  
-  const indiaDuration = indiaDurations.reduce((a, b) => a.duration || 0 + b.duration || 0)
+
+  const indiaDuration = indiaDurations.reduce((a, b) => a.duration || 0 + b.duration || 0, 0)
 
   return resp.status(200).send({
     totalIndiaCalls,
