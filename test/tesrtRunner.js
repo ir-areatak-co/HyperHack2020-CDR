@@ -8,7 +8,7 @@ module.exports = () => {
   const channel = config.get('transactions').createCallStart.channel
 
   setInterval(async () => {
-    const senderOperator = config.get('server').name === 'IndiaOpServer' ? 'UsaOpServer' : 'IndiaOpServer'
+    const senderOperator = config.get('server').name === 'IndiaOpServerAdmin' ? 'UsaOpServerAdmin' : 'IndiaOpServerAdmin'
     const callerId = randToken.generate(10)
     const callReceiverId = randToken.generate(10)
     const startedAt = `${Date.now()}`
