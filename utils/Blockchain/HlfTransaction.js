@@ -1,5 +1,5 @@
 class HlfTransaction {
-  async evaluate (gateway, channelName, contractName, functionName, args) {
+  static async evaluate (gateway, channelName, contractName, functionName, args) {
     const network = await gateway.getNetwork(channelName)
 
     const contract = await network.getContract(contractName)
@@ -12,7 +12,7 @@ class HlfTransaction {
     return responseBuffer
   }
 
-  async submit (gateway, channelName, contractName, functionName, args) {
+  static async submit (gateway, channelName, contractName, functionName, args) {
     const network = await gateway.getNetwork(channelName)
 
     const contract = await network.getContract(contractName)
