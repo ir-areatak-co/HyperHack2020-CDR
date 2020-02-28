@@ -1,7 +1,8 @@
 {
   "server": {
     "port": "3000",
-    "logsDirectory": "logs"
+    "logsDirectory": "logs",
+    "name": "IndiaOpServer"
   },
   "database": {
     "host": "127.0.0.1",
@@ -51,8 +52,31 @@
         "affiliation": "org1.department1",
         "role": "client",
         "maxEnrollments": 3,
-        "attrs": [{ "name": "Role", "value": "SERVER", "ecert": true }]
+        "attrs": [
+          {
+            "name": "Role",
+            "value": "SERVER",
+            "ecert": true
+          }
+        ]
       }
+    }
+  },
+  "transactions": {
+    "createCallStart": {
+      "name": "CreateCallStart",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    },
+    "acceptCallStart": {
+      "name": "AcceptCallStart",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    },
+    "endCall": {
+      "name": "endCall",
+      "chaincode": "CDR",
+      "channel": "mychannel"
     }
   },
   "events": {
