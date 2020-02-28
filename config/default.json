@@ -7,5 +7,69 @@
     "host": "127.0.0.1",
     "port": "27017",
     "name": "hyperhack2020"
+  },
+  "wallet": {
+    "walletPath": "fileStorage/wallet",
+    "users": {
+      "adminCA": {
+        "walletId": "adminCA",
+        "password": "1234"
+      },
+      "serverAdmin": {
+        "walletId": "IndiaOpServerAdmin1",
+        "password": "1234"
+      }
+    }
+  },
+  "blockchain": {
+    "network": "bornaNetwork",
+    "networks": {
+      "firstNetwork": {
+        "connectionPath": "fileStorage/first-network/connection-org1.json",
+        "adminCA": {
+          "mspId": "Org1MSP",
+          "enrollment": {
+            "enrollmentID": "admin",
+            "enrollmentSecret": "adminpw"
+          }
+        }
+      },
+      "bornaNetwork": {
+        "connectionPath": "fileStorage/basic-network/connection.json",
+        "adminCA": {
+          "mspId": "Org1MSP",
+          "enrollment": {
+            "enrollmentID": "admin",
+            "enrollmentSecret": "adminpw"
+          }
+        }
+      }
+    },
+    "registerRequests": {
+      "serverAdmin": {
+        "enrollmentID": "IndiaOpServerAdmin",
+        "affiliation": "org1.department1",
+        "role": "client",
+        "maxEnrollments": 3,
+        "attrs": [{ "name": "Role", "value": "SERVER", "ecert": true }]
+      }
+    }
+  },
+  "events": {
+    "callStartCreated": {
+      "name": "CALL_START_CREATED",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    },
+    "callStartAccepted": {
+      "name": "CALL_START_ACCEPTED",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    },
+    "callEnded": {
+      "name": "CALL_ENDED",
+      "chaincode": "CDR",
+      "channel": "mychannel"
+    }
   }
 }
