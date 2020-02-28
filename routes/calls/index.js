@@ -1,8 +1,8 @@
 const getCalls = require('./getCalls')
 const getStats = require('./getStats')
-const router = require('express').Router
+const router = require('express').Router()
 
-router.get('/stats', getCalls)
-router.post('/:page/:pageSize', getStats)
+router.get('/stats', getStats)
+router.post('/:page/:pageSize', getCalls)
 
 module.exports = router
