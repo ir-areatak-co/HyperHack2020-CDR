@@ -26,10 +26,9 @@ class CdrChannel {
     })
 
     channelEventHub.connect(true, (error, channelEventHub) => {
-      console.log(error)
+      if (error) console.log(error)
     })
     channelEventHub.checkConnection(true)
-
   }
 }
 
