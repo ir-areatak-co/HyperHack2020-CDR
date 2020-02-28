@@ -1,14 +1,9 @@
-const CdrChain = require('../network/CdrChain')
-const config = require('config')
-
-const handler = (event, blockNumber, transactionId, status) => {
-  console.log(event.payload.toString())
-  console.log(`Block Number: ${blockNumber} Transaction ID: ${transactionId} Status: ${status}`)
-}
-
-const errorHandler = error => console.log(error)
+const callStartCreated = require('./CallStartCreated')
+const callStartAccepted = require('./CallStartAccepted')
+const callEnded = require('./CallEnded')
 
 module.exports = async () => {
-  const { name, chaincode, channel } = config.get('events').profileRegistered
-  await CdrChain.Channel.getChannelEvents(chaincode, name, channel, handler, errorHandler)
+  await callStartCreated()
+  await callStartAccepted()
+  await callEnded()
 }
