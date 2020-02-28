@@ -25,9 +25,9 @@ module.exports = class CallEventsDao {
 
   static async update (data) {
     try {
-      const callEvent = await CallEvents.findOne({ transactionId: data.transactionId })
+      const callEvent = await CallEvents.findOne({ callId: data.callId })
       if (callEvent) {
-        await callEvent.update(data)
+        await callEvent.updateOne(data)
         return callEvent
       }
 
@@ -39,9 +39,9 @@ module.exports = class CallEventsDao {
 
   static async upsert (data) {
     try {
-      let callEvent = await CallEvents.findOne({ transactionId: data.transactionId })
+      let callEvent = await CallEvents.findOne({ callId: data.callId })
       if (callEvent) {
-        await callEvent.update(data)
+        await callEvent.updateOne(data)
         return callEvent
       }
 
