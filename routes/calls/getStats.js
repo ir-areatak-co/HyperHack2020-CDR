@@ -2,7 +2,7 @@ const CallEventsDao = require('../../DAO/callEvents')
 
 module.exports = async (req, resp) => {
   // total calls
-  await callsDao.getCounts({})
+  await CallEventsDao.getCounts({})
 
   // total calls (by each)
   const totalUsaCalls = await CallEventsDao.getCounts({ senderOperator: 'UsaOpServer' })
@@ -21,10 +21,14 @@ module.exports = async (req, resp) => {
   const totalIndiaCallsEnded = await CallEventsDao.getCounts({ senderOperator: 'IndiaOpServer', status: 'ENDED' })
 
   // total call duration (by each)
-  const usaDurations = await CallEventsDao.getMany({ senderOperator: 'UsaOpServer', status: 'ENDED' }, 'duration')
-  const usaDuration = usaDurations.reduce((a, b) => a + b)
-  const indiaDurations = await CallEventsDao.getMany({ senderOperator: 'IndiaOpServer', status: 'ENDED' }, 'duration')
-  const indiaDuration = indiaDurations.reduce((a, b) => a + b)
+  const usaDurations = await CallEventsDao.getAll({ senderOperator: 'UsaOpServer', status: 'ENDED' }, 'duration')
+  console.log(usaDurations);
+  
+  const usaDuration = usaDurations.reduce((a, b) => a.duration || 0 + b.duration || 0)
+  const indiaDurations = await CallEventsDao.getAll({ senderOperator: 'IndiaOpServer', status: 'ENDED' }, 'duration')
+  console.log(indiaDurations);
+  
+  const indiaDuration = indiaDurations.reduce((a, b) => a.duration || 0 + b.duration || 0)
 
   return resp.status(200).send({
     totalIndiaCalls,
