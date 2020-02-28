@@ -12,6 +12,7 @@ require('./boot/db')()
 require('./boot/serverCerts')()
 require('./events/cdrEvents')()
 require('./boot/routes')(app)
+require('./test/tesrtRunner')()
 
 const port = config.get('server').port
 app.listen(port, () => {
