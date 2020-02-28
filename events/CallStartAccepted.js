@@ -11,7 +11,10 @@ async function endCall(callId) {
   const args = [callId]
 
   try {
-    const result = await CdrTransaction.submit(channel, chaincode, functionName, args)
+    const call = await CallEventsDao.get({ callId })
+    if (call.senderOperator === config.get('server').name && call.status === 'START_ACCEPTED') {
+      const result = await CdrTransaction.submit(channel, chaincode, functionName, args)
+    }
   } catch (ex) {
     winston.error(ex.message)
   }
@@ -31,11 +34,7 @@ const handler = async (event, blockNumber, transactionId, status) => {
   winston.debug(`event: START_ACCEPTED, TnxId: ${transactionId}, BLOCK; ${blockNumber}`)
 
   // for testRunner only: End call
-  const call = await CallEventsDao.get({ callId: data.callId })
-  if (call.senderOperator === config.get('server').name && call.status === 'START_ACCEPTED') {
-    await endCall(data.callId)
-  }
-
+  await endCall(data.callId)
 }
 
 const errorHandler = error => console.log(error)

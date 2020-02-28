@@ -11,7 +11,10 @@ async function acceptCall(callId) {
   const args = [callId]
 
   try {
-    const result = await CdrTransaction.submit(channel, chaincode, functionName, args)
+    const call = await CallEventsDao.get({ callId: data.callId })
+    if (call.senderOperator === config.get('server').name && call.status === 'START_CREATED') {
+      const result = await CdrTransaction.submit(channel, chaincode, functionName, args)
+    }
   } catch (ex) {
     winston.error(ex.message)
   }
@@ -30,10 +33,7 @@ const handler = async (event, blockNumber, transactionId, status) => {
   winston.debug(`event: START_CREATED, TnxId: ${transactionId}, BLOCK; ${blockNumber}`)
 
   // for testRunner only: accept call
-  const call = await CallEventsDao.get({ callId: data.callId })
-  if (call.senderOperator === 'IndiaOpserverAdmin' && call.status === 'START_CREATED') {
-    await acceptCall(data.callId)
-  }
+  await acceptCall(data.callId)
 }
 
 const errorHandler = error => console.log(error)
