@@ -3,7 +3,7 @@ const CdrGateway = require('./Gateway')
 const config = require('config')
 
 class CdrTranaction {
-  async evaluate(gateway, channelName, contractName, functionName, args) {
+  static async evaluate(channelName, contractName, functionName, args) {
     const walletId = config.get('wallet').users.serverAdmin.walletId
     const walletPwd = config.get('wallet').users.serverAdmin.password
 
@@ -14,7 +14,7 @@ class CdrTranaction {
     return result
   }
 
-  async submit (gateway, channelName, contractName, functionName, args) {
+  static async submit(channelName, contractName, functionName, args) {
     const walletId = config.get('wallet').users.serverAdmin.walletId
     const walletPwd = config.get('wallet').users.serverAdmin.password
 
@@ -25,3 +25,5 @@ class CdrTranaction {
     return result
   }
 }
+
+module.exports = CdrTranaction
